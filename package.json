@@ -13,6 +13,7 @@
     "@react-native-async-storage/async-storage": "^2.2.0",
     "@react-native-community/datetimepicker": "^8.4.1",
     "@react-navigation/bottom-tabs": "^7.12.0",
+    "@react-navigation/drawer": "^7.8.0",
     "@react-navigation/elements": "^2.9.5",
     "@react-navigation/native": "^7.1.28",
     "expo": "~53.0.20",
@@ -35,7 +36,7 @@
     "react-native-gesture-handler": "~2.24.0",
     "react-native-picker-select": "^9.3.1",
     "react-native-reanimated": "~3.17.4",
-    "react-native-safe-area-context": "^5.4.0",
+    "react-native-safe-area-context": "5.4.0",
     "react-native-screens": "~4.11.1",
     "react-native-web": "^0.20.0",
     "react-native-webview": "^13.13.5"

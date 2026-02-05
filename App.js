@@ -1,20 +1,37 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import 'react-native-gesture-handler';
+import React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createDrawerNavigator } from '@react-navigation/drawer';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-export default function App() {
+import { ListasProvider } from './contexto/ListasContexto';
+import TelaInicial from './telas/TelaInicial';
+import TelaItensLista from './telas/TelaItensLista';
+import TelaListasPendentes from './telas/TelaListasPendentes';
+import TelaListasConcluidas from './telas/TelaListasConcluidas';
+
+const Drawer = createDrawerNavigator();
+const Stack = createNativeStackNavigator();
+
+function StackPrincipal() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <Stack.Navigator>
+      <Stack.Screen name="Listas" component={TelaInicial} />
+      <Stack.Screen name="Itens da Lista" component={TelaItensLista} />
+    </Stack.Navigator>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default function App() {
+  return (
+    <ListasProvider>
+      <NavigationContainer>
+        <Drawer.Navigator>
+          <Drawer.Screen name="Minhas Listas" component={StackPrincipal} />
+          <Drawer.Screen name="Pendentes" component={TelaListasPendentes} />
+          <Drawer.Screen name="Concluídas" component={TelaListasConcluidas} />
+        </Drawer.Navigator>
+      </NavigationContainer>
+    </ListasProvider>
+  );
+}
